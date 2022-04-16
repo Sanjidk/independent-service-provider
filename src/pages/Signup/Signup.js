@@ -1,8 +1,15 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
 
 const Signup = () => {
+  
+  const navigate = useNavigate();
+  const [
+    createUserWithEmailAndPassword, user ] = useCreateUserWithEmailAndPassword(auth);
 
   const nameRef = useRef('');
   const emailRef = useRef('');
@@ -13,10 +20,17 @@ const Signup = () => {
   const name = nameRef.current.value;
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
+  createUserWithEmailAndPassword(email, password);
+  }
+
+  
+
+  if(user){
+    navigate('/home');
   }
 
   return (
-    <div className="container w-50 text-start shadow-lg mt-5 p-5 rounded-5">
+    <div className="container w-50 text-start shadow-lg mt-5 p-3 rounded-5">
       <h1 className="fw-bold text-center text-info">Sign Up Form</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
