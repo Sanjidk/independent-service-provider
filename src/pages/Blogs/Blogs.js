@@ -1,9 +1,25 @@
-import React from 'react';
+import React from "react";
+import './Blogs.css';
 
 const Blogs = () => {
   return (
-    <div>
-            <h1>This is Blogs</h1>
+    <div className="question-answer">
+      <div className="shadow-lg">
+        <h1>Question</h1>
+        <p>Answer</p>
+      </div>
+      <div className="shadow-lg">
+        <h1>Question</h1>
+        <p>Answer</p>
+      </div>
+      <div className="shadow-lg">
+        <h1>Question</h1>
+        <p>Answer</p>
+      </div>
+      <div className="shadow-lg">
+        <h1>Question</h1>
+        <p>Answer</p>
+      </div>
     </div>
   );
 };

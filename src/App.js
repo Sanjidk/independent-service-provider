@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './shared/Header/Header';
-import Footer from './shared/Footer/Footer';
-import NotFound from './shared/NotFound/NotFound';
-import Home from './pages/Home/Home';
-import Services from './pages/Services/Services';
 import Blogs from './pages/Blogs/Blogs';
 import About from './pages/About/About';
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
+import Home from './pages/Home/Home/Home';
+import Services from './pages/Home/Services/Services';
+import Footer from './pages/Home/Footer/Footer';
+import Header from './pages/Home/Header/Header';
+import Login from './pages/Login/Login/Login';
+import Signup from './pages/Login/Signup/Signup';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (

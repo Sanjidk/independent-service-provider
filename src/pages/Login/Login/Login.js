@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../../firebase.init";
+import auth from "../../../firebase.init";
 
 const Login = () => {
 
