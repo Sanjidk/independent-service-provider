@@ -1,43 +1,54 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
   const location = useLocation();
-
-  let from = location.state?.from?.pathname || "/";
-
   const navigate = useNavigate();
+
+  let errorElement;
+  let from = location.state?.from?.pathname || "/";
 
   const [
     signInWithEmailAndPassword,
     user,
-    error
+    loading,
+    error1
   ] = useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   if(user){
     navigate (from, {replace:true});
   }
 
-  let errorElement;
-
-  if (error) {
-    errorElement = (
-      <h5 className="text-danger m-4">Error: {error?.message}</h5>
-    );
+  if (error1) {
+    errorElement = <h5 className="text-danger m-4">Error: {error1?.message}</h5>
   }
-
-  const emailRef = useRef('');
-  const passwordRef = useRef('');
 
   const handleSubmit = event =>{
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+
     signInWithEmailAndPassword(email, password);
+  }
+
+  const navigateRegister= event =>{
+    navigate('/signup')
+  }
+
+  const resetPassword =async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert('Sent email');
+  
+
   }
 
   return (
@@ -58,7 +69,12 @@ const Login = () => {
       </Form>
       {errorElement}
 
-      <h5 className="mt-3">New to This Website..? <Link to="/signup" className="text-danger pe-auto text-decoration-none" >Sign-Up Here</Link> </h5>
+      <h5 className="mt-3">New to This Website..? <Link to="/signup" onClick={navigateRegister} className="text-danger pe-auto text-decoration-none" >Sign-Up Here</Link> </h5>
+      <h5 className="mt-3">Forget Password..? <Link to="/signup" onClick={resetPassword} className="text-danger pe-auto text-decoration-none" >Reset Password</Link> </h5>
+
+      <SocialLogin></SocialLogin>
+
+      
     </div>
   );
 };

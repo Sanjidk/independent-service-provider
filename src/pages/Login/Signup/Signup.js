@@ -3,17 +3,20 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Signup = () => {
   
-  const navigate = useNavigate();
-  const [
-    createUserWithEmailAndPassword, user ] = useCreateUserWithEmailAndPassword(auth);
-
   const nameRef = useRef('');
   const emailRef = useRef('');
   const passwordRef = useRef('');
+  const navigate = useNavigate();
+  const [ createUserWithEmailAndPassword, user ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  
+  
+  if(user){
+    navigate('/home');
+  }
 
   const handleSubmit = event =>{
   event.preventDefault();
@@ -23,8 +26,10 @@ const Signup = () => {
   createUserWithEmailAndPassword(email, password);
   }
 
-  if(user){
-    navigate('/home');
+
+  const navigateLogin= event =>{
+    navigate('/login')
+
   }
 
   return (
@@ -47,7 +52,10 @@ const Signup = () => {
           Sign Up
         </Button>
       </Form>
-      <h5 className="mt-3">Already have an account..? <Link to="/login" className="text-danger pe-auto text-decoration-none" >Login Here</Link> </h5>
+      <h5 className="mt-3">Already have an account..? <Link to="/login" onClick={navigateLogin} className="text-danger pe-auto text-decoration-none" >Login Here</Link> </h5>
+
+      <SocialLogin></SocialLogin>
+
     </div>
   );
 };
