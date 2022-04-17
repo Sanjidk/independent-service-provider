@@ -14,11 +14,20 @@ const Login = () => {
 
   const [
     signInWithEmailAndPassword,
-    user
+    user,
+    error
   ] = useSignInWithEmailAndPassword(auth);
 
   if(user){
     navigate (from, {replace:true});
+  }
+
+  let errorElement;
+
+  if (error) {
+    errorElement = (
+      <h5 className="text-danger m-4">Error: {error?.message}</h5>
+    );
   }
 
   const emailRef = useRef('');
@@ -47,6 +56,8 @@ const Login = () => {
           Login
         </Button>
       </Form>
+      {errorElement}
+
       <h5 className="mt-3">New to This Website..? <Link to="/signup" className="text-danger pe-auto text-decoration-none" >Sign-Up Here</Link> </h5>
     </div>
   );

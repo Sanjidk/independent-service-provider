@@ -1,10 +1,9 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import useServices from "../../Hooks/useServices";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Checkout = () => {
-  const [services] = useServices();
-  const singleService = services[0];
 
   return (
     <div className="w-50 mx-auto shadow-lg m-3 p-3 text-start">
@@ -12,13 +11,13 @@ const Checkout = () => {
       <Form>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Photography Type</Form.Label>
-            <Form.Control type="name" value={singleService.name} readOnly />
+            <Form.Label>Your Name</Form.Label>
+            <Form.Control type="name"  readOnly />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Price</Form.Label>
-            <Form.Control type="number" value={singleService.price} readOnly />
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email"  readOnly  />
           </Form.Group>
         </Row>
 

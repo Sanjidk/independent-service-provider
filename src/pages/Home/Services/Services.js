@@ -7,7 +7,7 @@ const Services = () => {
   const [services]=useServices();
   return (
     <div id='services'>
-      <CardGroup className=''>
+      <CardGroup>
       {
         services.map(service => <Service
         key={service.id}
