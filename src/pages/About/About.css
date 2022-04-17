@@ -1,0 +1,21 @@
+.about-div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about-items{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.about-items img{
+  width: 70%;
+}
+
+
+@media only screen and (max-width:576px) {
+  .about-div{
+    display: block;
+  }
+}
