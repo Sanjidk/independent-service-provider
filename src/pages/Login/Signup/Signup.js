@@ -17,7 +17,7 @@ const Signup = () => {
 
   const handleSubmit = event =>{
   event.preventDefault();
-  // const name = nameRef.current.value;
+  const name = nameRef.current.value;
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
   createUserWithEmailAndPassword(email, password);

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Animals Photography",
+    "description": "If you want to animals photograph, i will provide you 100 best animals photo like Tiger, Lion, Monkey etc. Feel free to Checkout. ",
+    "image": "https://img.freepik.com/free-photo/shallow-focus-shot-male-lion-resting-grass-field_181624-15831.jpg?w=740&t=st=1650152196~exp=1650152796~hmac=69d08d025fb4a1b8378878294ec1b9f38e0e4cc357e2b745b96907bca4c2f688",
+    "price": 700
+  },
+  {
+    "id": 2,
+    "name": "Birds Photography",
+    "description": "If you want to birds photograph, i will provide you 100 best birds photo like Parrots, Woodpeckers, Kingfisher etc. Feel free to Checkout. ",
+    "image": "https://img.freepik.com/free-photo/bee-eater-sitting-tree-branch-clouded-sky_181624-30671.jpg?w=740&t=st=1650152232~exp=1650152832~hmac=b79e2a3011f25b57d396142c57a8615379760c058bae6500656020129dc7ef92",
+    "price": 600
+  },
+  {
+    "id": 3,
+    "name": "Insects Photography",
+    "description": "If you want to insects photograph, i will provide you 100 best insects photo like Bees, Pterygota, Bugs etc. Feel free to checkout. ",
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-housefly_181624-12539.jpg?w=740&t=st=1650151826~exp=1650152426~hmac=5dddb4bd693f0b98f90a5ea40a3384a87dbf7cc6f4d568b354b5573022b3c725",
+    "price": 500
+  }
+]

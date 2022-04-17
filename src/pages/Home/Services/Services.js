@@ -1,9 +1,20 @@
 import React from 'react';
+import { CardGroup } from 'react-bootstrap';
+import useServices from '../../Hooks/useServices';
+import Service from '../Service/Service';
 
 const Services = () => {
+  const [services]=useServices();
   return (
-    <div>
-      <h1>Hello from services</h1>
+    <div id='services'>
+      <CardGroup className=''>
+      {
+        services.map(service => <Service
+        key={service.id}
+        service={service}
+        ></Service>)
+      }
+      </CardGroup>
     </div>
   );
 };
