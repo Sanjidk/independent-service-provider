@@ -30,7 +30,6 @@ const Login = () => {
   if (error1) {
     errorElement = <h5 className="text-danger m-4">Error: {error1?.message}</h5>
   }
-
   const handleSubmit = event =>{
     event.preventDefault();
     const email = emailRef.current.value;

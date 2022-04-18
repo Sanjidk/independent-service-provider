@@ -27,12 +27,9 @@ const Signup = () => {
   
   }
 
- 
-
-
-  const navigateLogin= event =>{
+  
+  const navigateLogin= (event) =>{
     navigate('/login')
-
   }
 
   return (
