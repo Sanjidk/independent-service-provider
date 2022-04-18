@@ -7,6 +7,7 @@ const Services = () => {
   const [services]=useServices();
   return (
     <div id='services'>
+      <h1 className='fw-bold mt-5'>Services</h1>
       <CardGroup>
       {
         services.map(service => <Service

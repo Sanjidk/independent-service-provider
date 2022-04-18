@@ -21,7 +21,7 @@ const Login = () => {
     error1
   ] = useSignInWithEmailAndPassword(auth);
 
-  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   if(user){
     navigate (from, {replace:true});
@@ -56,11 +56,9 @@ const Login = () => {
       <h1 className="fw-bold text-center text-primary">Login Form</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
         </Form.Group>
         <Button variant="primary" type="submit">
@@ -69,8 +67,8 @@ const Login = () => {
       </Form>
       {errorElement}
 
-      <h5 className="mt-3">New to This Website..? <Link to="/signup" onClick={navigateRegister} className="text-danger pe-auto text-decoration-none" >Sign-Up Here</Link> </h5>
-      <h5 className="mt-3">Forget Password..? <Link to="/signup" onClick={resetPassword} className="text-danger pe-auto text-decoration-none" >Reset Password</Link> </h5>
+      <h6 className="mt-3">New to This Website..? <Link to="/signup" onClick={navigateRegister} className="text-primary pe-auto text-decoration-none" >Sign-Up Here</Link> </h6>
+      <h6 className="mt-3">Forget Password..? <Link to="/signup" onClick={resetPassword} className="text-primary pe-auto text-decoration-none" >Reset Password</Link> </h6>
 
       <SocialLogin></SocialLogin>
 

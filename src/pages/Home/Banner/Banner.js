@@ -47,9 +47,6 @@ const Banner = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-      <div className="mt-5">
-        <h3>Services</h3>
-      </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import './Header.css';
+
 
 const Header = () => {
 
@@ -16,7 +18,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" sticky='top' bg="primary" variant="dark">
     <Container>
-      <Navbar.Brand as={Link} to="/">Wildlife Photographer</Navbar.Brand>
+      <Navbar.Brand className='fw-bold' as={Link} to="/"><span className='header-text'>Wildlife</span> <span className='header-text2'>Photographer</span></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">

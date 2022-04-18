@@ -24,7 +24,10 @@ const Signup = () => {
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
   createUserWithEmailAndPassword(email, password);
+  
   }
+
+ 
 
 
   const navigateLogin= event =>{
@@ -37,22 +40,19 @@ const Signup = () => {
       <h1 className="fw-bold text-center text-info">Sign Up Form</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Your Name</Form.Label>
           <Form.Control ref={nameRef} type="text" placeholder="Your Name" required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
         </Form.Group>
         <Button variant="primary" type="submit">
           Sign Up
         </Button>
       </Form>
-      <h5 className="mt-3">Already have an account..? <Link to="/login" onClick={navigateLogin} className="text-danger pe-auto text-decoration-none" >Login Here</Link> </h5>
+      <h6 className="mt-3">Already have an account..? <Link to="/login" onClick={navigateLogin} className="text-primary pe-auto text-decoration-none" >Login Here</Link> </h6>
 
       <SocialLogin></SocialLogin>
 
