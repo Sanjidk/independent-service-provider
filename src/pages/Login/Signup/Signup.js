@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -11,26 +11,29 @@ const Signup = () => {
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const navigate = useNavigate();
-  const [ createUserWithEmailAndPassword, user ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [ createUserWithEmailAndPassword, user, loading2, error2 ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification: true});
   
-  
-  if(user){
-    navigate('/home');
+
+  const navigateLogin= () =>{
+    navigate('/login')
   }
+
 
   const handleSubmit = event =>{
   event.preventDefault();
   const name = nameRef.current.value;
   const email = emailRef.current.value;
   const password = passwordRef.current.value;
-  createUserWithEmailAndPassword(email, password);
-  
+  createUserWithEmailAndPassword(email, password);  
   }
 
-  
-  const navigateLogin= (event) =>{
-    navigate('/login')
+  if(user){
+    navigate('/home');
   }
+
+  if(loading2){
+    return <Spinner animation="grow" variant="dark" />;
+}
 
   return (
     <div className="container w-50 text-start shadow-lg mt-5 p-3 rounded-5">
@@ -49,7 +52,7 @@ const Signup = () => {
           Sign Up
         </Button>
       </Form>
-      <h6 className="mt-3">Already have an account..? <Link to="/login" onClick={navigateLogin} className="text-primary pe-auto text-decoration-none" >Login Here</Link> </h6>
+      <h6 className="mt-3"> Already have an account..? <Link to="/login" onClick={navigateLogin} className="text-primary pe-auto text-decoration-none" >Login Here</Link> </h6>
 
       <SocialLogin></SocialLogin>
 
