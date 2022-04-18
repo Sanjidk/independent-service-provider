@@ -5,16 +5,16 @@ const BonusService = () => {
   return (
     <div>
       <h1 className="my-3 fw-bold text-primary">Upcoming Services</h1>
-      <div class="w-100 border-0">
-        <div class="row g-0">
-          <div class="col-md-4 p-3">
-            <img src={drone} class="img-fluid rounded-start" alt="..." />
+      <div className="w-100 border-0">
+        <div className="row g-0">
+          <div className="col-md-4 p-3">
+            <img src={drone} className="img-fluid rounded-start" alt="..." />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h2 class="card-title">Drone Shot</h2>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h2 className="card-title">Drone Shot</h2>
               <h4>Price: $ 1000 </h4>
-              <p class="card-text w-75 mx-auto">
+              <p className="card-text w-75 mx-auto">
                 A shot where the camera on the drone moves (pans) to the left or
                 right. It's commonly used to give a panoramic perspective of a
                 scene or when the creator wants to reveal something.
